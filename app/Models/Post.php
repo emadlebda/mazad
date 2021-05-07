@@ -60,6 +60,12 @@ class Post extends Model implements HasMedia
         'deleted_at',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+        Post::observe(new \App\Observers\PostActionObserver());
+    }
+
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')->fit('crop', 50, 50);

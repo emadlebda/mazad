@@ -136,66 +136,50 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 32,
-                'title' => 'user_alert_create',
-            ],
-            [
-                'id'    => 33,
-                'title' => 'user_alert_show',
-            ],
-            [
-                'id'    => 34,
-                'title' => 'user_alert_delete',
-            ],
-            [
-                'id'    => 35,
-                'title' => 'user_alert_access',
-            ],
-            [
-                'id'    => 36,
                 'title' => 'faq_management_access',
             ],
             [
-                'id'    => 37,
+                'id'    => 33,
                 'title' => 'faq_category_create',
             ],
             [
-                'id'    => 38,
+                'id'    => 34,
                 'title' => 'faq_category_edit',
             ],
             [
-                'id'    => 39,
+                'id'    => 35,
                 'title' => 'faq_category_show',
             ],
             [
-                'id'    => 40,
+                'id'    => 36,
                 'title' => 'faq_category_delete',
             ],
             [
-                'id'    => 41,
+                'id'    => 37,
                 'title' => 'faq_category_access',
             ],
             [
-                'id'    => 42,
+                'id'    => 38,
                 'title' => 'faq_question_create',
             ],
             [
-                'id'    => 43,
+                'id'    => 39,
                 'title' => 'faq_question_edit',
             ],
             [
-                'id'    => 44,
+                'id'    => 40,
                 'title' => 'faq_question_show',
             ],
             [
-                'id'    => 45,
+                'id'    => 41,
                 'title' => 'faq_question_delete',
             ],
             [
-                'id'    => 46,
+                'id'    => 42,
                 'title' => 'faq_question_access',
             ],
             [
-                'id'    => 47,
+                'id'    => 43,
                 'title' => 'profile_password_edit',
             ],
         ];
