@@ -112,18 +112,6 @@
                         </a>
                     </li>
                 @endcan
-                @can('user_alert_access')
-                    <li class="nav-item">
-                        <a href="{{ route("admin.user-alerts.index") }}" class="nav-link {{ request()->is("admin/user-alerts") || request()->is("admin/user-alerts/*") ? "active" : "" }}">
-                            <i class="fa-fw nav-icon fas fa-bell">
-
-                            </i>
-                            <p>
-                                {{ trans('cruds.userAlert.title') }}
-                            </p>
-                        </a>
-                    </li>
-                @endcan
                 @can('faq_management_access')
                     <li class="nav-item has-treeview {{ request()->is("admin/faq-categories*") ? "menu-open" : "" }} {{ request()->is("admin/faq-questions*") ? "menu-open" : "" }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
