@@ -44,7 +44,7 @@
                             {{ trans('cruds.post.fields.price') }}
                         </th>
                         <td>
-                            {{ $post->price }}
+                            ${{ number_format($post->price,2) ?? '' }}
                         </td>
                     </tr>
                     <tr>

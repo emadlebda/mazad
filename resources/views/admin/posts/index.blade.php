@@ -58,7 +58,7 @@
                                 {{ $post->title ?? '' }}
                             </td>
                             <td>
-                                {{ $post->price ?? '' }}
+                                ${{ number_format($post->price,2) ?? '' }}
                             </td>
                             <td>
                                 {{ App\Models\Post::STATUS_RADIO[$post->status] ?? '' }}
@@ -151,7 +151,7 @@
   $('div#sidebar').on('transitionend', function(e) {
     $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
   })
-  
+
 })
 
 </script>
