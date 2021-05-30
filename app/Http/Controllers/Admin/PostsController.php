@@ -25,7 +25,11 @@ class PostsController extends Controller
 
         $posts = Post::with(['brand', 'category', 'media'])->get();
 
-        return view('admin.posts.index', compact('posts'));
+        $brands = Brand::get();
+
+        $categories = Category::get();
+
+        return view('admin.posts.index', compact('posts', 'brands', 'categories'));
     }
 
     public function create()

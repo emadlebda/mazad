@@ -12,6 +12,10 @@ class Category extends Model
 
     public $table = 'categories';
 
+    public static $searchable = [
+        'title',
+    ];
+
     protected $dates = [
         'created_at',
         'updated_at',
