@@ -12,6 +12,10 @@ class Brand extends Model
 
     public $table = 'brands';
 
+    public static $searchable = [
+        'title',
+    ];
+
     protected $dates = [
         'created_at',
         'updated_at',
