@@ -30,6 +30,10 @@ class Post extends Model implements HasMedia
 
     public $table = 'posts';
 
+    public static $searchable = [
+        'title',
+    ];
+
     protected $appends = [
         'featured_image',
         'images',
