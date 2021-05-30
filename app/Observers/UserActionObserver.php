@@ -2,15 +2,15 @@
 
 namespace App\Observers;
 
-use App\Models\Post;
+use App\Models\User;
 use App\Notifications\DataChangeEmailNotification;
 use Illuminate\Support\Facades\Notification;
 
-class PostActionObserver
+class UserActionObserver
 {
-    public function created(Post $model)
+    public function created(User $model)
     {
-        $data  = ['action' => 'created', 'model_name' => 'Post'];
+        $data  = ['action' => 'created', 'model_name' => 'User'];
         $users = \App\Models\User::whereHas('roles', function ($q) { return $q->where('title', 'Admin'); })->get();
         Notification::send($users, new DataChangeEmailNotification($data));
     }
