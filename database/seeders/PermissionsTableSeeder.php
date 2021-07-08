@@ -136,6 +136,26 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 32,
+                'title' => 'bid_create',
+            ],
+            [
+                'id'    => 33,
+                'title' => 'bid_edit',
+            ],
+            [
+                'id'    => 34,
+                'title' => 'bid_show',
+            ],
+            [
+                'id'    => 35,
+                'title' => 'bid_delete',
+            ],
+            [
+                'id'    => 36,
+                'title' => 'bid_access',
+            ],
+            [
+                'id'    => 37,
                 'title' => 'profile_password_edit',
             ],
         ];

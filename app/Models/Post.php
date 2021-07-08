@@ -76,6 +76,11 @@ class Post extends Model implements HasMedia
         $this->addMediaConversion('preview')->fit('crop', 120, 120);
     }
 
+    public function postBids()
+    {
+        return $this->hasMany(Bid::class, 'post_id', 'id');
+    }
+
     public function getFeaturedImageAttribute()
     {
         $file = $this->getMedia('featured_image')->last();

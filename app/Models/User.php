@@ -11,14 +11,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
     use SoftDeletes;
     use Notifiable;
     use HasFactory;
-    use HasApiTokens;
 
     public $table = 'users';
 
@@ -59,6 +57,11 @@ class User extends Authenticatable
     {
         parent::boot();
         User::observe(new \App\Observers\UserActionObserver());
+    }
+
+    public function userBids()
+    {
+        return $this->hasMany(Bid::class, 'user_id', 'id');
     }
 
     public function getEmailVerifiedAtAttribute($value)

@@ -112,6 +112,18 @@
                         </a>
                     </li>
                 @endcan
+                @can('bid_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.bids.index") }}" class="nav-link {{ request()->is("admin/bids") || request()->is("admin/bids/*") ? "active" : "" }}">
+                            <i class="fa-fw nav-icon fas fa-dollar-sign">
+
+                            </i>
+                            <p>
+                                {{ trans('cruds.bid.title') }}
+                            </p>
+                        </a>
+                    </li>
+                @endcan
                 @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
                     @can('profile_password_edit')
                         <li class="nav-item">
