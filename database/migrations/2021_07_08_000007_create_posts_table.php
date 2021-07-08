@@ -12,6 +12,7 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->longText('description');
+            $table->decimal('orignal_price', 15, 2);
             $table->decimal('price', 15, 2);
             $table->string('exterior_color');
             $table->string('interior_color');

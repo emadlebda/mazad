@@ -27,6 +27,14 @@
                 <span class="help-block">{{ trans('cruds.post.fields.description_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="orignal_price">{{ trans('cruds.post.fields.orignal_price') }}</label>
+                <input class="form-control {{ $errors->has('orignal_price') ? 'is-invalid' : '' }}" type="number" name="orignal_price" id="orignal_price" value="{{ old('orignal_price', $post->orignal_price) }}" step="0.01" required>
+                @if($errors->has('orignal_price'))
+                    <span class="text-danger">{{ $errors->first('orignal_price') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.post.fields.orignal_price_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label class="required" for="price">{{ trans('cruds.post.fields.price') }}</label>
                 <input class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" type="number" name="price" id="price" value="{{ old('price', $post->price) }}" step="0.01" required>
                 @if($errors->has('price'))

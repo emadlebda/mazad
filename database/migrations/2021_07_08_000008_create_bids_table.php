@@ -10,6 +10,7 @@ class CreateBidsTable extends Migration
     {
         Schema::create('bids', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->decimal('bid_amount', 15, 2);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -29,6 +29,9 @@
                             {{ trans('cruds.post.fields.title') }}
                         </th>
                         <th>
+                            {{ trans('cruds.post.fields.orignal_price') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.post.fields.price') }}
                         </th>
                         <th>
@@ -46,6 +49,9 @@
                     </tr>
                     <tr>
                         <td>
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                         </td>
                         <td>
                             <input class="search" type="text" placeholder="{{ trans('global.search') }}">
@@ -95,6 +101,9 @@
                             </td>
                             <td>
                                 {{ $post->title ?? '' }}
+                            </td>
+                            <td>
+                                {{ $post->orignal_price ?? '' }}
                             </td>
                             <td>
                                 {{ $post->price ?? '' }}

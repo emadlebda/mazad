@@ -25,6 +25,9 @@ class UpdateBidRequest extends FormRequest
                 'required',
                 'integer',
             ],
+            'bid_amount' => [
+                'required',
+            ],
         ];
     }
 }

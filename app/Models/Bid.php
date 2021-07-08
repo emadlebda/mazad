@@ -23,6 +23,7 @@ class Bid extends Model
     protected $fillable = [
         'post_id',
         'user_id',
+        'bid_amount',
         'created_at',
         'updated_at',
         'deleted_at',

@@ -48,6 +48,7 @@ class Post extends Model implements HasMedia
     protected $fillable = [
         'title',
         'description',
+        'orignal_price',
         'price',
         'exterior_color',
         'interior_color',
