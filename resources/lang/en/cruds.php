@@ -141,4 +141,22 @@ return [
             'deleted_at_helper'     => ' ',
         ],
     ],
+    'bid' => [
+        'title'          => 'Bids',
+        'title_singular' => 'Bid',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => ' ',
+            'post'              => 'Post',
+            'post_helper'       => ' ',
+            'user'              => 'User',
+            'user_helper'       => ' ',
+            'created_at'        => 'Created at',
+            'created_at_helper' => ' ',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => ' ',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => ' ',
+        ],
+    ],
 ];

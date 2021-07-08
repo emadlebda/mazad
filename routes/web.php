@@ -39,6 +39,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('posts/ckmedia', 'PostsController@storeCKEditorImages')->name('posts.storeCKEditorImages');
     Route::resource('posts', 'PostsController');
 
+    // Bids
+    Route::delete('bids/destroy', 'BidsController@massDestroy')->name('bids.massDestroy');
+    Route::resource('bids', 'BidsController');
+
     Route::get('global-search', 'GlobalSearchController@search')->name('globalSearch');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {

@@ -111,7 +111,7 @@ class PostsController extends Controller
     {
         abort_if(Gate::denies('post_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $post->load('brand', 'category');
+        $post->load('brand', 'category', 'postBids');
 
         return view('admin.posts.show', compact('post'));
     }
