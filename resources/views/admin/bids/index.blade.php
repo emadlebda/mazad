@@ -32,6 +32,9 @@
                             {{ trans('cruds.bid.fields.user') }}
                         </th>
                         <th>
+                            {{ trans('cruds.bid.fields.bid_amount') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -50,6 +53,9 @@
                             </td>
                             <td>
                                 {{ $bid->user->name ?? '' }}
+                            </td>
+                            <td>
+                                {{ $bid->bid_amount ?? '' }}
                             </td>
                             <td>
                                 @can('bid_show')

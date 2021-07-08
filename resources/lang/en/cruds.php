@@ -139,6 +139,8 @@ return [
             'updated_at_helper'     => ' ',
             'deleted_at'            => 'Deleted at',
             'deleted_at_helper'     => ' ',
+            'orignal_price'         => 'Orignal Price',
+            'orignal_price_helper'  => ' ',
         ],
     ],
     'bid' => [
@@ -157,6 +159,8 @@ return [
             'updated_at_helper' => ' ',
             'deleted_at'        => 'Deleted at',
             'deleted_at_helper' => ' ',
+            'bid_amount'        => 'Bid Amount',
+            'bid_amount_helper' => ' ',
         ],
     ],
 ];

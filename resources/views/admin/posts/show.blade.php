@@ -41,6 +41,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.post.fields.orignal_price') }}
+                        </th>
+                        <td>
+                            {{ $post->orignal_price }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.post.fields.price') }}
                         </th>
                         <td>

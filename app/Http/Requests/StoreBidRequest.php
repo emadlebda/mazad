@@ -25,6 +25,9 @@ class StoreBidRequest extends FormRequest
                 'required',
                 'integer',
             ],
+            'bid_amount' => [
+                'required',
+            ],
         ];
     }
 }

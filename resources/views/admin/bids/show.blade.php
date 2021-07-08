@@ -39,6 +39,14 @@
                             {{ $bid->user->name ?? '' }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.bid.fields.bid_amount') }}
+                        </th>
+                        <td>
+                            {{ $bid->bid_amount }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">
