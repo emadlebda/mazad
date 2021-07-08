@@ -20,7 +20,7 @@ class PostsApiController extends Controller
     {
         abort_if(Gate::denies('post_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new PostResource(Post::with(['brand', 'category'])->get());
+        return new PostResource(Post::with(['brand', 'category'])->orderByDesc('updated_at')->paginate(10));
     }
 
     public function store(StorePostRequest $request)
