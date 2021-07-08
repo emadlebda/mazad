@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Api\V1\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Resources\Admin\BidResource;
 use App\Http\Resources\Admin\UserResource;
+use App\Models\Bid;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Symfony\Component\HttpFoundation\Response;
 
 class UsersApiController extends Controller
@@ -55,4 +58,11 @@ class UsersApiController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+
+    public function myBids()
+    {
+        return new BidResource(Bid::whereUserId(auth()->id())->get());
+    }
+
 }

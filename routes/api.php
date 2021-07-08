@@ -15,6 +15,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     Route::apiResource('roles', 'RolesApiController');
 
     // Users
+    Route::get('users/my-bids', [\App\Http\Controllers\Api\V1\Admin\UsersApiController::class, 'myBids']);
     Route::apiResource('users', 'UsersApiController');
 
     // Brands
