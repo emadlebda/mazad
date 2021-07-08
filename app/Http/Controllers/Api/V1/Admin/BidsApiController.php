@@ -7,6 +7,7 @@ use App\Http\Requests\StoreBidRequest;
 use App\Http\Requests\UpdateBidRequest;
 use App\Http\Resources\Admin\BidResource;
 use App\Models\Bid;
+use App\Models\Post;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,6 +24,10 @@ class BidsApiController extends Controller
     public function store(StoreBidRequest $request)
     {
         $bid = Bid::create($request->all());
+
+        Post::findOrFail($request->post_id)->update([
+            'price' => $bid->bid_amount
+        ]);
 
         return (new BidResource($bid))
             ->response()

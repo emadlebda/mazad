@@ -11,6 +11,7 @@ use App\Models\Post;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\Object_;
 use Symfony\Component\HttpFoundation\Response;
 
 class BidsController extends Controller
@@ -38,6 +39,10 @@ class BidsController extends Controller
     public function store(StoreBidRequest $request)
     {
         $bid = Bid::create($request->all());
+
+        Post::findOrFail($request->post_id)->update([
+            'price' => $bid->bid_amount
+        ]);
 
         return redirect()->route('admin.bids.index');
     }
