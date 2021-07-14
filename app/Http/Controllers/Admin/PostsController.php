@@ -45,7 +45,7 @@ class PostsController extends Controller
 
     public function store(StorePostRequest $request)
     {
-        $post = Post::create($request->all());
+        $post = Post::create(array_merge($request->all(), ['orignal_price' => $request->price]));
 
         if ($request->input('featured_image', false)) {
             $post->addMedia(storage_path('tmp/uploads/' . basename($request->input('featured_image'))))->toMediaCollection('featured_image');
@@ -136,10 +136,10 @@ class PostsController extends Controller
     {
         abort_if(Gate::denies('post_create') && Gate::denies('post_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $model         = new Post();
-        $model->id     = $request->input('crud_id', 0);
+        $model = new Post();
+        $model->id = $request->input('crud_id', 0);
         $model->exists = true;
-        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
+        $media = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }

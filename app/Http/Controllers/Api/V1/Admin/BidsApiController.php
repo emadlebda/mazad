@@ -23,11 +23,11 @@ class BidsApiController extends Controller
 
     public function store(StoreBidRequest $request)
     {
-        $bid = Bid::create($request->all());
+        $post = Post::findOrFail($request->post_id);
+        $bid = $post->postBids()->create($request->all());
 
-        Post::findOrFail($request->post_id)->update([
-            'price' => $bid->bid_amount
-        ]);
+        if ($bid->bid_amount > $post->orignal_price) $post->update(['price' => $bid->bid_amount]);
+
 
         return (new BidResource($bid))
             ->response()

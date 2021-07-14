@@ -24,9 +24,6 @@ class StorePostRequest extends FormRequest
             'description' => [
                 'required',
             ],
-            'orignal_price' => [
-                'required',
-            ],
             'price' => [
                 'required',
             ],
