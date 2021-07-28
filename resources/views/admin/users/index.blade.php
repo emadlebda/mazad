@@ -83,6 +83,19 @@
                                     </form>
                                 @endcan
 
+                                    @if ($user->status)
+                                        <a class="btn btn-xs btn-dark" href="{{ route('admin.users.changeStatus', $user->id) }}">
+                                            ban
+                                        </a>
+                                    @else
+                                        <a class="btn btn-xs btn-dark" href="{{ route('admin.users.changeStatus', $user->id) }}">
+                                            unban
+                                        </a>
+                                    @endif
+
+
+
+
                             </td>
 
                         </tr>

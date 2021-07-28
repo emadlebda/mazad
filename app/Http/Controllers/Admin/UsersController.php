@@ -84,4 +84,18 @@ class UsersController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+    public function changeStatus(User $user)
+    {
+        if ($user->status)
+            $to_update = false;
+        else
+            $to_update = true;
+
+
+        $user->status = $to_update;
+        $user->save();
+
+        return redirect()->route('admin.users.index');
+    }
 }

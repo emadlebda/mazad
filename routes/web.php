@@ -11,7 +11,7 @@ Route::get('/home', function () {
 
 Auth::routes(['register' => false]);
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth','CheckBanned']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
+    Route::get('users/{user}/change_status', 'UsersController@changeStatus')->name('users.changeStatus');
     Route::resource('users', 'UsersController');
 
     // Brands
