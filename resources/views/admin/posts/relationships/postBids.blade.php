@@ -22,9 +22,6 @@
 
                             </th>
                             <th>
-                                {{ trans('cruds.bid.fields.id') }}
-                            </th>
-                            <th>
                                 {{ trans('cruds.bid.fields.post') }}
                             </th>
                             <th>
@@ -43,9 +40,6 @@
                             <tr data-entry-id="{{ $bid->id }}">
                                 <td>
 
-                                </td>
-                                <td>
-                                    {{ $bid->id ?? '' }}
                                 </td>
                                 <td>
                                     {{ $bid->post->title ?? '' }}
@@ -132,7 +126,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>
