@@ -17,14 +17,6 @@
                 <tbody>
                     <tr>
                         <th>
-                            {{ trans('cruds.bid.fields.id') }}
-                        </th>
-                        <td>
-                            {{ $bid->id }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.bid.fields.post') }}
                         </th>
                         <td>

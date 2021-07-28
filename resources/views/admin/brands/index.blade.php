@@ -22,9 +22,7 @@
                         <th width="10">
 
                         </th>
-                        <th>
-                            {{ trans('cruds.brand.fields.id') }}
-                        </th>
+
                         <th>
                             {{ trans('cruds.brand.fields.title') }}
                         </th>
@@ -38,9 +36,6 @@
                         <tr data-entry-id="{{ $brand->id }}">
                             <td>
 
-                            </td>
-                            <td>
-                                {{ $brand->id ?? '' }}
                             </td>
                             <td>
                                 {{ $brand->title ?? '' }}
@@ -127,7 +122,7 @@
   $('div#sidebar').on('transitionend', function(e) {
     $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
   })
-  
+
 })
 
 </script>

@@ -15,14 +15,7 @@
             </div>
             <table class="table table-bordered table-striped">
                 <tbody>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.category.fields.id') }}
-                        </th>
-                        <td>
-                            {{ $category->id }}
-                        </td>
-                    </tr>
+
                     <tr>
                         <th>
                             {{ trans('cruds.category.fields.title') }}

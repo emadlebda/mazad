@@ -23,9 +23,6 @@
 
                         </th>
                         <th>
-                            {{ trans('cruds.category.fields.id') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.category.fields.title') }}
                         </th>
                         <th>
@@ -39,9 +36,7 @@
                             <td>
 
                             </td>
-                            <td>
-                                {{ $category->id ?? '' }}
-                            </td>
+
                             <td>
                                 {{ $category->title ?? '' }}
                             </td>
@@ -127,7 +122,7 @@
   $('div#sidebar').on('transitionend', function(e) {
     $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
   })
-  
+
 })
 
 </script>
