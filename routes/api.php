@@ -27,6 +27,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     Route::apiResource('categories', 'CategoriesApiController');
 
     // Posts
+    Route::get('posts/{post}/sell', 'PostsApiController@sell');
     Route::post('posts/media', 'PostsApiController@storeMedia')->name('posts.storeMedia');
     Route::apiResource('posts', 'PostsApiController');
 

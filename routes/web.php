@@ -38,6 +38,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('posts/destroy', 'PostsController@massDestroy')->name('posts.massDestroy');
     Route::post('posts/media', 'PostsController@storeMedia')->name('posts.storeMedia');
     Route::post('posts/ckmedia', 'PostsController@storeCKEditorImages')->name('posts.storeCKEditorImages');
+    Route::get('posts/{post}/sell', 'PostsController@sell')->name('posts.sell');
     Route::resource('posts', 'PostsController');
 
     // Bids

@@ -8,8 +8,11 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Resources\Admin\PostResource;
 use App\Models\Post;
+use App\Notifications\YouHaveWinTheBidNotification;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Notification;
 use Symfony\Component\HttpFoundation\Response;
 
 class PostsApiController extends Controller
@@ -85,5 +88,19 @@ class PostsApiController extends Controller
         $post->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function sell(Post $post)
+    {
+        abort_if($post->user_id == auth()->id(), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $highest_bid = $post->postBids()->latest()->firstOrFail();
+
+        // send to user an email
+        Notification::send($highest_bid->user, new YouHaveWinTheBidNotification($post));
+        // close the post
+        $post->delete();
+
+        return response(null, Response::HTTP_CREATED);
     }
 }
