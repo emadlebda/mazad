@@ -7,7 +7,7 @@ Route::post('register', [AuthApiController::class, 'register']);
 Route::post('login', [AuthApiController::class, 'login']);
 
 
-Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:sanctum']], function () {
+Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', 'middleware' => ['auth:sanctum', 'CheckBanned']], function () {
     // Permissions
     Route::apiResource('permissions', 'PermissionsApiController');
 
@@ -16,6 +16,8 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Users
     Route::get('users/my-bids', [\App\Http\Controllers\Api\V1\Admin\UsersApiController::class, 'myBids']);
+    Route::get('users/{user}/change_status', [\App\Http\Controllers\Api\V1\Admin\UsersApiController::class, 'changeStatus'])->name('users.changeStatus');
+
     Route::apiResource('users', 'UsersApiController');
 
     // Brands
