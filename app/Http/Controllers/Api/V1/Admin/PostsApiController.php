@@ -8,6 +8,7 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Resources\Admin\PostResource;
 use App\Models\Post;
+use App\Notifications\YouHaveSuccessfullySellPostNotification;
 use App\Notifications\YouHaveWinTheBidNotification;
 use Gate;
 use Illuminate\Http\Request;
@@ -92,15 +93,17 @@ class PostsApiController extends Controller
 
     public function sell(Post $post)
     {
-        abort_if($post->user_id == auth()->id(), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if($post->user_id != auth()->id(), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $highest_bid = $post->postBids()->latest()->firstOrFail();
 
         // send to user an email
         Notification::send($highest_bid->user, new YouHaveWinTheBidNotification($post));
+        Notification::send(auth()->user(), new YouHaveSuccessfullySellPostNotification($post, $highest_bid->user));
         // close the post
-        $post->delete();
+        $post->update(['status' => 3]);
+//        $post->delete();
 
-        return response(null, Response::HTTP_CREATED);
+        return response('selled successfully', Response::HTTP_CREATED);
     }
 }

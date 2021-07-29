@@ -10,6 +10,7 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Post;
+use App\Notifications\YouHaveSuccessfullySellPostNotification;
 use App\Notifications\YouHaveWinTheBidNotification;
 use Gate;
 use Illuminate\Http\Request;
@@ -154,8 +155,11 @@ class PostsController extends Controller
 
         // send to user an email
         Notification::send($highest_bid->user, new YouHaveWinTheBidNotification($post));
+        Notification::send(auth()->user(), new YouHaveSuccessfullySellPostNotification($post, $highest_bid->user));
+
         // close the post
-        $post->delete();
+//        $post->delete();
+        $post->update(['status' => 3]);
 
         return redirect()->route('admin.posts.index');
     }

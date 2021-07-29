@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\Post;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -11,9 +12,15 @@ class DataChangeEmailNotification extends Notification
 {
     use Queueable;
 
-    public function __construct($data)
+    /**
+     * @var Post
+     */
+    private $post;
+
+    public function __construct($data, Post $post)
     {
         $this->data = $data;
+        $this->post = $post;
     }
 
     public function via($notifiable)
@@ -33,7 +40,7 @@ class DataChangeEmailNotification extends Notification
             ->greeting('Hi,')
             ->line('we would like to inform you that entry has been ' . $this->data['action'] . ' in ' . $this->data['model_name'])
             ->line('Please log in to see more information.')
-            ->action(config('app.name'), config('app.url'))
+            ->action('New Post', route('admin.posts.show', $this->post->id))
             ->line('Thank you')
             ->line(config('app.name') . ' Team')
             ->salutation(' ');

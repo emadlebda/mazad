@@ -47,6 +47,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'status',
+        'mobile',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -93,6 +94,11 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 
     protected function serializeDate(DateTimeInterface $date)

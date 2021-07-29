@@ -66,7 +66,7 @@
                         <td>
                             @foreach($post->images as $key => $media)
                                 <a href="{{ $media->getUrl() }}" target="_blank" style="display: inline-block">
-                                    <img src="{{ $media->getUrl('thumb') }}">
+                                    <img src="{{ $media->getUrl('thumb') }}" alt="">
                                 </a>
                             @endforeach
                         </td>

@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Post;
+use App\Models\Bid;
 use Illuminate\Database\Seeder;
 
-class PostsTableSeeder extends Seeder
+class BidTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        Post::factory()->count(5)->create();
+        Bid::factory()->count(10)->create();
     }
 }

@@ -12,6 +12,6 @@ class PostActionObserver
     {
         $data  = ['action' => 'created', 'model_name' => 'Post'];
         $users = \App\Models\User::whereHas('roles', function ($q) { return $q->where('title', 'Admin'); })->get();
-        Notification::send($users, new DataChangeEmailNotification($data));
+        Notification::send($users, new DataChangeEmailNotification($data,$model));
     }
 }

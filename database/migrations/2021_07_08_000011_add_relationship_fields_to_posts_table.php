@@ -13,6 +13,8 @@ class AddRelationshipFieldsToPostsTable extends Migration
             $table->foreign('brand_id', 'brand_fk_3858928')->references('id')->on('brands');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id', 'category_fk_3858929')->references('id')->on('categories');
+
+            $table->foreignId('user_id')->constrained();
         });
     }
 }

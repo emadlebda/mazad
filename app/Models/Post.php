@@ -20,6 +20,7 @@ class Post extends Model implements HasMedia
         '0' => 'pending',
         '1' => 'approved',
         '2' => 'rejected',
+        '3' => 'selled'
     ];
 
     public const FUEL_TYPE_SELECT = [
@@ -60,6 +61,7 @@ class Post extends Model implements HasMedia
         'status',
         'brand_id',
         'category_id',
+        'user_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -80,6 +82,11 @@ class Post extends Model implements HasMedia
     public function postBids()
     {
         return $this->hasMany(Bid::class, 'post_id', 'id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function getFeaturedImageAttribute()

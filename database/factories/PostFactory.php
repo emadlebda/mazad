@@ -36,6 +36,7 @@ class PostFactory extends Factory
             'updated_at' => Carbon::now(),
             'brand_id' => rand(1, 20),
             'category_id' => rand(1, 10),
+            'user_id' => 1
         ];
     }
 }
