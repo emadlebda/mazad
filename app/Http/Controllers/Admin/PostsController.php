@@ -48,7 +48,7 @@ class PostsController extends Controller
 
     public function store(StorePostRequest $request)
     {
-        $post = Post::create(array_merge($request->all(), ['orignal_price' => $request->price]));
+        $post = Post::create(array_merge($request->all(), ['orignal_price' => $request->price, 'user_id' => auth()->id()]));
 
         if ($request->input('featured_image', false)) {
             $post->addMedia(storage_path('tmp/uploads/' . basename($request->input('featured_image'))))->toMediaCollection('featured_image');
