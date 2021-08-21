@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\Notification;
 
 class UserActionObserver
 {
+    
     public function created(User $model)
     {
         $data  = ['action' => 'created', 'model_name' => 'User'];
         $users = \App\Models\User::whereHas('roles', function ($q) { return $q->where('title', 'Admin'); })->get();
-        Notification::send($users, new DataChangeEmailNotification($data));
+    //    Notification::send($users, new DataChangeEmailNotification($data));
     }
+    
 }

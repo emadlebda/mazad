@@ -98,8 +98,8 @@ class PostsApiController extends Controller
         $highest_bid = $post->postBids()->latest()->firstOrFail();
 
         // send to user an email
-        Notification::send($highest_bid->user, new YouHaveWinTheBidNotification($post));
-        Notification::send(auth()->user(), new YouHaveSuccessfullySellPostNotification($post, $highest_bid->user));
+        //Notification::send($highest_bid->user, new YouHaveWinTheBidNotification($post));
+        //Notification::send(auth()->user(), new YouHaveSuccessfullySellPostNotification($post, $highest_bid->user));
         // close the post
         $post->update(['status' => 3]);
 //        $post->delete();
