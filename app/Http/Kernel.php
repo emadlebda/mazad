@@ -27,6 +27,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'CheckBanned' => \App\Http\Middleware\CheckBannedMiddleware::class,
+        'csrf' => \Http\Middleware\VerifyCsrfToken::class,
     ];
 
     protected $middlewareGroups = [
